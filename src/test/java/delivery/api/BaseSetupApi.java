@@ -20,13 +20,7 @@ public class BaseSetupApi {
 
     @BeforeAll
     public static void setUp() throws ConfigurationException {
-
-        configuration = new PropertiesConfiguration();
-        configuration.load(PATH_TO_CONFIG);
-        RestAssured.baseURI = configuration.getString("base-url");
-        String u = configuration.getString("username");
-        String p = configuration.getString("password");
-        bearerToken = ApiClient.authorizeAndGetToken(u, p);
+        RestAssured.baseURI = "https://backend.tallinn-learning.ee";
     }
 
     @BeforeEach
